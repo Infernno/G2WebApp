@@ -1,0 +1,36 @@
+﻿@inherits Nancy.ViewEngines.Razor.NancyRazorViewBase
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <meta charset="utf-8" />
+    <title>G2</title>
+    <!-- Scripts -->
+    <script type="text/javascript" src="~/Scripts/jquery-2.1.4.min.js"></script>
+    <script type="text/javascript" src="~/Scripts/bootstrap.min.js"></script>
+    <script type="text/javascript" src="~/Scripts/jquery.validate.min.js"></script>
+    <script type="text/javascript" src="~/Scripts/Noty/packaged/jquery.noty.packaged.min.js"></script>
+    <script type="text/javascript" src="~/Scripts/messages.js"></script>
+    <script type="text/javascript" src="~/Scripts/validation.js"></script>
+    <script type="text/javascript" src="~/Scripts/toTop.js"></script>
+    <script type="text/javascript" src="~/Scripts/search.js"></script>
+    <script type="text/javascript" src="~/Scripts/Votes.js"></script>
+    <!-- CSS Styles -->
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/Styles.css" rel="stylesheet"/>
+    <link href="~/Content/Comments.css" rel="stylesheet"/>
+</head>
+<body>
+    @Html.Partial("Views/Shared/Header.cshtml") 
+
+    <div class="container">
+        <div class="row">
+            <div class="col-fixed-content main-container">@RenderBody() </div>
+            <div class="col-fixed-sidebar main-container">@Html.Partial("Views/Shared/Sidebar.cshtml")</div>
+        </div>
+    </div>
+
+    <a class="btn btn-default toTop" style="display: none">Наверх</a>
+</body>
+</html>

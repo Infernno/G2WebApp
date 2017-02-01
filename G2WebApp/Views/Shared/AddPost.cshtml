@@ -1,0 +1,129 @@
+﻿<script type="text/javascript">
+    verifyForm('#addTextPost', '/post/add/text');
+
+    $(document).ready(function () {
+        $('#addImageForm').submit(function (e) {
+            e.preventDefault();
+
+            showMessage("Выполняется загрузка...");
+
+            var formData = new FormData($(this)[0]);
+
+            $.ajax({
+                url: '/post/add/image',
+                type: 'POST',
+                data: formData,
+                async: false,
+                success: function (data) {
+                    if (data.error != null)
+                        showMessage(data.error, "error");
+                    if (data.redirect != null)
+                        document.location = data.redirect;
+                },
+                cache: false,
+                contentType: false,
+                processData: false
+            });
+        });
+
+        /*
+        $("#addImageForm").submit(function (e) {
+            e.preventDefault();
+
+            var formData = new FormData($(this)[0]);
+
+            $.post($(this).attr("action", '/post/add/image'), formData, function (data) {
+                showMessage(data.error);
+            });
+
+            return false;
+        });
+        */
+    });
+
+</script>
+
+<div class="container-fluid" style="width: 470px; margin-left: 220px;">
+    <!-- <div style="width: 470px; margin-left: 220px;"> -->
+
+    <div class="form-group" style="margin-bottom: 40px;">
+        <div style="margin-left: 40px">
+            <div class="alert alert-info" style="text-align: center" role="alert">
+                <span class="alert-link">Не добавляйте пост, если он уже есть на сайте.</span>
+            </div>
+
+            <ul class="nav nav-tabs">
+                <li class="active"><a data-toggle="tab" href="#textPanel"><span class="glyphicon glyphicon-pencil"></span> Текст</a></li>
+                <li><a data-toggle="tab" href="#imagePanel"><span class="glyphicon glyphicon-picture"></span> Картинка</a></li>
+            </ul>
+        </div>
+
+        <div class="tab-content">
+            <div id="textPanel" class="tab-pane fade in active" style="margin-top: 12px">
+                <form id="addTextPost" method="POST">
+
+                    <ul class="add-post-list">
+                        <li class="add-post-list-space">
+                            <p class="add-post-fontsize">Заголовок:</p>
+                            <input type="text" class="form-control" placeholder="Заголовок вашего поста" name="Title">
+                        </li>
+
+                        <li class="add-post-list-space">
+                            <p class="add-post-fontsize">Описание (необязательно):</p>
+                            <input type="text" class="form-control" placeholder="Опишите кратко о чем пост" name="Description">
+                        </li>
+
+                        <li class="add-post-list-space">
+                            <p class="add-post-fontsize">Теги:</p>
+                            <input type="text" class="form-control" placeholder="Через запятую укажите не менее 2 тегов" name="Tags">
+                        </li>
+
+                        <li class="add-post-list-space">
+                            <p class="add-post-fontsize">Текст:</p>
+                            <textarea name="Text" class="form-control" placeholder="Расскажите о чем-нибудь ;)" rows="5"></textarea>
+                        </li>
+
+                        <li style="margin-top: 20px">
+                            <input type="submit" value="Добавить" class="btn btn-info common-color" />
+                        </li>
+                    </ul>
+                </form>
+            </div>
+
+            <div id="imagePanel" class="tab-pane fade" style="margin-top: 12px">
+                <form id="addImageForm" method="POST" enctype="multipart/form-data">
+
+                    <ul class="add-post-list">
+
+                        <li class="add-post-list-space">
+                            <p class="add-post-fontsize">Заголовок:</p>
+                            <input type="text" class="form-control" placeholder="Заголовок вашего поста" name="Title">
+                        </li>
+
+                        <li class="add-post-list-space">
+                            <p class="add-post-fontsize">Описание (необязательно):</p>
+                            <input type="text" class="form-control" placeholder="Опишите кратко о чем пост" name="Description">
+                        </li>
+
+                        <li class="add-post-list-space">
+                            <p class="add-post-fontsize">Теги:</p>
+                            <input type="text" class="form-control" placeholder="Через запятую укажите не менее 2 тегов" name="Tags">
+                        </li>
+
+                        <li style="margin-top: 20px">
+                            <p class="add-post-fontsize">Выберите файл:</p>
+                            <input name="upload" style="cursor: pointer;" type="file" size="40" />
+                        </li>
+
+                        <li style="margin-top: 20px">
+                            <input type="submit" value="Добавить" class="btn btn-info common-color" />
+                        </li>
+                    </ul>
+                </form>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- </div> -->
+</div>

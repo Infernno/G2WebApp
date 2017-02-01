@@ -1,0 +1,32 @@
+﻿@inherits Nancy.ViewEngines.Razor.NancyRazorViewBase<G2WebApp.Core.Data.ViewModels.FullStoryViewModel>
+
+@Html.Partial("Views/Shared/Post", @Model.StoryViewModel)
+
+
+<div class="comments-main">
+    <!--
+    <div class="progress" style="width: 200px; margin-bottom: 20px" title="0 плюсов и 0 минусов">
+        <div class="progress-bar progress-bar-success" style="width:0%"></div>
+        <div class="progress-bar progress-bar-danger" style="width:0%"></div>
+    </div>
+    -->
+
+    <hr />
+
+    @if (Model.CommentViewModels.Count > 0)
+    {
+        @foreach (var comment in @Model.CommentViewModels)
+        {
+            @Html.Partial("Views/Shared/Comment", comment)
+        }
+    }
+    <br />
+    @if (Html.IsAuthenticated)
+    {
+        @Html.Partial("Views/Shared/AddComment", @Model.StoryViewModel.Id)
+    }
+    else
+    {
+        <p class="center-message" style="font-size: 12pt; margin-top: 20px">Чтобы оставить комментарий, необходимо зарегистрироваться или войти.</p>
+    }
+</div>

@@ -1,0 +1,28 @@
+﻿@inherits Nancy.ViewEngines.Razor.NancyRazorViewBase<G2WebApp.Core.Data.ViewModels.CommentOfDayViewModel>
+
+<div class="panel panel-default space">
+    <div class="panel-heading">Комментарий дня</div>
+    <div class="panel-body">
+        @if (Model == null)
+        {
+            <p>Такого комментария нет :(</p>
+        }
+        else
+        {
+            <a href="/post/@Model.StoryID" style="font-family: Tahoma,Arial; color: #5190B8; font-size: 12px;">@Model.StoryTitle</a>
+            <table class="comment">
+                <tr class="comment-header">
+                    <td>
+                        <span class="comment-rating">@Model.OverallRating.ToString("+#;-#;0")</span>
+                        <span style="margin-left: 8px"><a href="/profile/@Model.Author"><b>@Model.Author;</b></a> отправлено @Model.DateCreated.ToShortDateString() в @Model.DateCreated.ToShortTimeString()</span>
+                    </td>
+                </tr>
+                <tr class="comment-body">
+                    <td>
+                        @Model.Content
+                    </td>
+                </tr>
+            </table>
+        }
+    </div>
+</div>

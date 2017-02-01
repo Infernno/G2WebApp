@@ -1,0 +1,26 @@
+﻿@inherits Nancy.ViewEngines.Razor.NancyRazorViewBase<G2WebApp.Core.Data.ViewModels.CommentViewModel>
+
+<table class="comment">
+    <tr class="comment-header">
+        <td>
+            <span class="comment-rating">@Model.OverallRating.ToString("+#;-#;0")</span>
+
+            @if (Model.UserVoteValue == 1)
+            { <span class="voteArrow up upvoted" commentId="@Model.Id"></span> }
+            else
+            { <span class="voteArrow up" commentId="@Model.Id"></span> }
+
+            @if (Model.UserVoteValue == -1)
+            { <span class="voteArrow down downvoted" commentId="@Model.Id"></span> }
+            else
+            { <span class="voteArrow down" commentId="@Model.Id"></span> }
+
+            <span style="margin-left: 8px"><a href="/profile/@Model.Author"><b>@Model.Author</b></a> отправлено @Model.DateCreated.ToShortDateString() в @Model.DateCreated.ToShortTimeString()</span>
+        </td>
+    </tr>
+    <tr class="comment-body">
+        <td>
+            @Model.Content
+        </td>
+    </tr>
+</table>

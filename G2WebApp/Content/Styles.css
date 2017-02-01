@@ -1,0 +1,271 @@
+﻿.common-color {
+    background: #55acee;
+}
+
+.common-color-text {
+    color: #55acee;
+}
+
+#nav-logo-brand {
+    position: absolute;
+    top: 10%;
+    left: 1%;
+    height: auto;
+    width: auto;
+    max-width: 40px;
+    max-height: 40px;
+}
+
+.second-bar-text {
+    color: #ffffff;
+    font-size: 16pt;
+}
+
+.main-container {
+    margin-top: 50px;
+}
+
+.col-fixed-sidebar {
+    margin-left: 950px;
+    width: 300px;
+    background: white;
+    /* height: 100%; */
+    position: relative;
+}
+
+.col-fixed-content {
+    position: absolute;
+    width: 950px;
+    margin-left: -6px;
+    background: white;
+    /* height: 100%; */
+}
+
+.auth-input-field {
+    max-width: 140px;
+    width: auto;
+    display: inline;
+}
+
+.space {
+    margin-top: 40px;
+}
+
+#sign-in-button {
+    margin-top: 10px;
+}
+
+#addnews-button {
+    margin-top: 20px;
+    width: 300px;
+}
+
+.table-inner-wrap {
+    width: 100%;
+    max-width: 1190px;
+}
+
+.pg {
+    width: 97%;
+    margin: 0px;
+    clear: both;
+    padding-left: 18px;
+}
+
+.rating {
+    font: 1px Tahoma,Arial,sans-serif;
+    color: #9B9999;
+    text-align: left;
+    vertical-align: middle;
+    width: 68px;
+    white-space: nowrap;
+}
+
+.b-rating {
+    width: 98px;
+}
+
+.b-rating-arrow {
+    list-style: outside none none;
+    text-align: center;
+    font-size: 18px;
+    line-height: 22px;
+    background-image: none;
+}
+
+#b-rating-count {
+    list-style: outside none none;
+    text-align: center;
+    font-size: 21px;
+}
+
+.b-story-mainheader {
+    padding: 3px 5px 3px 8px;
+    vertical-align: middle;
+    text-align: left;
+    overflow: hidden;
+    max-width: 600px;
+    word-wrap: break-word;
+    -moz-hyphens: auto;
+}
+
+.b-header-info {
+    font: 12/20px Tahoma,Arial,sans-serif;
+    color: #777;
+    text-align: left;
+    white-space: normal;
+    padding-bottom: 7px;
+}
+
+.b-header-title {
+    margin-top: -16px;
+    font-size: 20px;
+}
+
+.container-body {
+    width: 650px;
+    padding: 1px 6px;
+    text-align: left;
+    margin-left: 95px;
+    margin-top: -15px;
+    min-height: 60px;
+    max-width: 650px;
+}
+
+.profile-wrap {
+    width: 90%;
+    margin-left: 15px;
+    margin-bottom: 50px;
+    height: auto;
+    margin-top: 20px;
+    padding: 10px 14px;
+    background: #55acee;
+    border-width: 1px;
+    border-style: solid;
+    border-image: none;
+    border-radius: 3px;
+    text-align: left;
+    font-family: Tahoma,Arial;
+    font-size: 12px;
+    color: #ffffff;
+    border-color: #55acee #55acee #55acee #55acee;
+}
+
+.b-user-menu {
+    width: 300px;
+    margin: 20px 0px 0px 5px;
+    font-family: Tahoma,Helvetica,Arial,sans-serif;
+}
+
+.b-user-menu__main {
+    float: left;
+    box-sizing: border-box;
+    width: 200px;
+    border: 1px solid #DDD;
+    border-radius: 2px;
+}
+
+.b-user-menu__logo {
+    float: right;
+    width: 80px;
+}
+
+.b-user-menu__avatar {
+    border: 1px solid #C3C3C3;
+    border-radius: 2px;
+    overflow: hidden;
+    width: 80px;
+}
+
+.b-user-menu__header {
+    font-size: 15px;
+    padding: 4px 10px;
+    line-height: 18px;
+    border-bottom: 1px dashed #D1D8DA;
+    margin: 2px 5px;
+}
+
+.b-user-menu-list {
+    margin-left: 15px;
+    margin-top: 12px;
+    list-style: outside none none;
+    padding: 0px;
+    font-size: 12px;
+    color: #686969;
+}
+
+    .b-user-menu-list li {
+        line-height: 23px;
+    }
+
+.b-user-menu-list-element {
+    margin-right: 5px;
+}
+
+.b-user-menu__logout {
+    transition: opacity 0s ease 0s, all 300ms ease 0s;
+    cursor: pointer;
+    float: right;
+    opacity: 0.5;
+    position: relative;
+    right: -10px;
+}
+
+.add-post-fontsize {
+    font-size: 14px;
+}
+
+.add-post-list {
+    list-style: outside none none;
+}
+
+.add-post-list-space {
+    margin-bottom: 14px;
+}
+
+.toTop {
+    width: 100px;
+    position: fixed;
+    z-index: 100;
+    text-decoration: none;
+    cursor: pointer;
+    right: 370px;
+    bottom: 20px;
+}
+
+.center-message {
+    color: #777;
+    margin-top: 200px;
+    font-size: 17pt;
+}
+
+#TagList {
+    margin-left: 10px;
+}
+
+.post-image {
+    max-width: 600px;
+    height: auto;
+}
+
+.voteArrow {
+    cursor: pointer;
+}
+
+.up::before {
+    font-family: "Glyphicons Halflings";
+    content: "\e113";
+}
+
+.down::before {
+    font-family: "Glyphicons Halflings";
+    content: "\e114";
+}
+
+.upvoted {
+    color: chartreuse;
+}
+
+.downvoted {
+    color: orangered;
+}

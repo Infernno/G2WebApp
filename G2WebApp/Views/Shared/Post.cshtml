@@ -1,0 +1,84 @@
+﻿@using G2WebApp.Core.Data.Entities
+@inherits Nancy.ViewEngines.Razor.NancyRazorViewBase<G2WebApp.Core.Data.ViewModels.StoryViewModel>
+
+<table class="table-inner-wrap" id="story_@Model.Id">
+    <tbody>
+        <tr>
+            <td>
+                <table class="pg">
+                    <tbody>
+                        <tr>
+                            <td class="rating">
+                                <ul class="b-rating">
+                                    <li class="b-rating-arrow">
+                                        @if (Model.UserVoteValue == 1)
+                                        {
+                                            <div class="voteArrow up upvoted" articleId="@Model.Id"></div>
+                                        }
+                                        else
+                                        {
+                                            <div class="voteArrow up" articleId="@Model.Id"></div>
+                                        }
+                                    </li>
+
+
+                                    <li id="b-rating-count">
+                                        <div class="totalVotes">@Model.OverallRating</div>
+                                    </li>
+
+                                    <li class="b-rating-arrow">
+                                        @if (Model.UserVoteValue == -1)
+                                        {
+                                            <div class="voteArrow down downvoted" articleId="@Model.Id"></div>
+                                        }
+                                        else
+                                        {
+                                            <div class="voteArrow down" articleId="@Model.Id"></div>
+                                        }
+                                    </li>
+
+                                </ul>
+                            </td>
+                            <td class=".b-story-mainheader">
+                                <div class="b-header-title">
+                                    <a href="/post/@Model.Id">@Model.Title</a>
+                                </div>
+
+                                <div>@Model.Description</div>
+                                <div class="b-header-info">
+                                    <a href="#">Комментарии: @Model.CommentsCount;</a>
+                                    пришло от <a href="/profile/@Model.Author">@Model.Author</a>
+                                    @Model.DateCreated.ToShortDateString() в @Model.DateCreated.ToShortTimeString()
+
+                                    @foreach (string mTag in Model.Tags.Split(','))
+                                    {
+                                        <span class="label label-default common-color">@mTag</span>
+                                    }
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <div class="container-body">
+                    @switch (Model.StoryType)
+                    {
+                        case ContentType.Text:
+                            @Html.Partial("Views/Shared/TextPost", Model.Text)
+                            break;
+                        case ContentType.Image:
+                            <img class="post-image" src="@Model.ImageUrl" />
+                            break;
+                        case ContentType.Video:
+                            @Html.Partial("Views/Shared/VideoPost", Model.VideoUrl)
+                            break;
+                    }
+                </div>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<br />

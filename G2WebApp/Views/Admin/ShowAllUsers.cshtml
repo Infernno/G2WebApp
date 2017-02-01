@@ -1,0 +1,55 @@
+﻿@inherits Nancy.ViewEngines.Razor.NancyRazorViewBase<System.Collections.Generic.List<G2WebApp.Core.Data.Entities.User>>
+
+<p class="center-message" style="margin-top: 10px">Всего пользователей на сайте : @Model.Count</p>
+<table class="table" style="max-width: 900px">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Никнейм</th>
+            <th>Пароль</th>
+            <th>Имя</th>
+            <th>Фамилия</th>
+            <th>Класс</th>
+            <th>IP</th>
+            <th>Группа</th>
+            <th>Возможные действия</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var user in @Model)
+        {
+            <tr>
+                <td>@user.Id</td>
+                <td>
+                    <a href="/profile/@user.Username">@user.Username</a>
+                </td>
+                <td>
+                    @user.Password
+                </td>
+                <td>
+                    @user.FirstName
+                </td>
+                <td>
+                    @user.LastName
+                </td>
+                <td>
+                    @user.Class
+                </td>
+                <td>
+                    @user.Ip
+                </td>
+                <td>
+                    @user.Role
+                </td>
+                <td>
+                    <div class="btn-toolbar" role="toolbar">
+                        <div class="btn-group" role="group">
+                            <button type="button" onclick="window.location.href='/admin/do?Type=user&Action=unban&Id=@user.Id'" class="btn btn-default btn-success">Разбанить</button>
+                            <button type="button" onclick="window.location.href='/admin/do?Type=user&Action=ban&Id=@user.Id'" class="btn btn-default btn-danger">Забанить</button>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

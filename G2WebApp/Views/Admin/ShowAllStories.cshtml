@@ -1,0 +1,39 @@
+﻿@inherits Nancy.ViewEngines.Razor.NancyRazorViewBase<System.Collections.Generic.List<G2WebApp.Core.Data.Entities.Story>>
+
+<p class="center-message" style="margin-top: 10px">Всего постов на сайте : @Model.Count</p>
+<table class="table" style="max-width: 900px">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Автор</th>
+            <th>Заголовок</th>
+            <th>Статус</th>
+            <th>Действия</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var story in @Model)
+        {
+            <tr>
+                <td>@story.Id</td>
+                <td>
+                    <a href="/profile/@story.Author">@story.Author</a>
+                </td>
+                <td>
+                    <a href="/post/@story.Id">@story.Title</a>
+                </td>
+                <td>
+                    @story.Flag
+                </td>
+                <td>
+                    <div class="btn-toolbar" role="toolbar">
+                        <div class="btn-group" role="group">
+                            <button type="button" onclick="window.location.href='/admin/do?Type=post&Action=approve&Id=@story.Id'" class="btn btn-default btn-success">Одобрить</button>
+                            <button type="button" onclick="window.location.href='/admin/do?Type=post&Action=delete&Id=@story.Id'" class="btn btn-default btn-danger">Удалить</button>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

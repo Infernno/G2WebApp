@@ -1,0 +1,48 @@
+﻿@using G2WebApp.App.Helpers
+@inherits Nancy.ViewEngines.Razor.NancyRazorViewBase
+
+<div>
+    <!-- Login form -->
+    @if (Html.IsAuthenticated)
+    {
+        @Html.Partial("Views/Shared/ProfileTab.cshtml", Html.ShowProfile(Html.CurrentUser.UserName))
+    }
+    else
+    {
+        <script type="text/javascript">verifyForm('#login', '/auth/signin')</script>
+        <script type="text/javascript">verifyForm('#reg', '/auth/signup')</script>
+
+        <div class="form-group">
+
+            <ul class="nav nav-tabs">
+                <li class="active"><a data-toggle="tab" href="#loginPanel">Авторизация</a></li>
+                <li><a data-toggle="tab" href="#regPanel">Регистрация</a></li>
+            </ul>
+
+            <div class="tab-content">
+                @Html.Partial("Views/Shared/Login.cshtml")
+                @Html.Partial("Views/Shared/Register.cshtml")
+            </div>
+        </div>
+    }
+
+
+    <!-- Add news button-->
+    <div>
+        <a href="/post/add" class="btn btn-success" id="addnews-button">
+            <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+            Добавить новость
+        </a>
+    </div>
+
+    <!-- Comment of this day -->
+
+    <div>
+        @Html.CommentOfDay()
+        <!-- Html.Partial("Views/Shared/CommentOfDay", CommentManager.GetCommentOfDay())-->
+    </div>
+
+    <div>
+        <!-- <p>Twitter.Search("#asp.net", "370310477957435392")</p> -->
+    </div>
+</div>

@@ -1,0 +1,29 @@
+﻿.comment {
+    font: 13px Tahoma,Helvetica,Arial,sans-serif;
+    color: #444;
+    margin-bottom: 20px;
+}
+
+.comment-header {
+    color: #777;
+    font-size: 11px;
+    overflow: hidden;
+    line-height: 20px;
+    margin-bottom: 5px;
+}
+
+.comments-main {
+    border: 0px none;
+    padding: 10px 0px 10px 10px;
+    margin: 5px 27px 27px 88px;
+    max-width: 760px;
+}
+
+.comment-body {
+    margin-top: 10px;
+}
+
+.comment-rating {
+    font-weight: 700;
+    font-size: 14px;
+}

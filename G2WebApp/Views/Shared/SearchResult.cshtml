@@ -1,0 +1,16 @@
+﻿@inherits Nancy.ViewEngines.Razor.NancyRazorViewBase<G2WebApp.Core.Data.ViewModels.SearchResultViewModel>
+
+
+@if (Model.PostViewModels.Count == 0)
+{
+    <p align="center" class="center-message">По вашему запросу ничего не найдено :(</p>
+}
+else
+{
+    <p align="center" class="center-message" style="margin-top: 20px; margin-bottom: 30px">По запросу "@Model.Query" найдено:</p>
+
+    foreach (var post in Model.PostViewModels)
+    {
+        @Html.Partial("Views/Shared/Post", post);
+    }
+}

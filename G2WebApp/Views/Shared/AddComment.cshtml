@@ -1,0 +1,10 @@
+﻿@inherits Nancy.ViewEngines.Razor.NancyRazorViewBase<int>
+
+<script type="text/javascript">
+    verifyForm("#addCommentForm", "/comment/add/?Id=@Model", function(data) { showMessage(data.message, "success")}, null, true)
+</script>
+<form id="addCommentForm">
+    <textarea name="Content" class="form-control" placeholder="Введите текст для комментария" style="width: 638px" rows="3"></textarea>
+    <input type="submit" value="Отправить" class="btn btn-info common-color" id="sign-in-button" />
+</form>
+

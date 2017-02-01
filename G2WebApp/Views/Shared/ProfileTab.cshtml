@@ -1,0 +1,24 @@
+﻿@inherits Nancy.ViewEngines.Razor.NancyRazorViewBase<G2WebApp.Core.Data.Entities.Profile>
+
+<div class="b-user-menu__main">
+    <div class="b-user-menu__header">
+        <a href="/profile/@Model.DisplayName" style="text-decoration: none">@Model.DisplayName</a>
+        <a href="/auth/logout" class="b-user-menu__logout glyphicon glyphicon-log-out" style="text-decoration: none"></a>
+    </div>
+
+    <ul class="b-user-menu-list">
+        <li><span class="glyphicon glyphicon-equalizer common-color-text b-user-menu-list-element"></span>Рейтинг: @Model.Rating</li>
+        <li><span class="glyphicon glyphicon-user common-color-text b-user-menu-list-element"></span>Подписчики: пока нет</li>
+        <!-- <li><span class="glyphicon glyphicon-wrench common-color-text b-user-menu-list-element"></span><a href="/profile/edit">Настройки</a></li>-->
+        <li><span class="glyphicon glyphicon-list-alt common-color-text b-user-menu-list-element"></span><a href="/profile/feed">Лента</a></li>
+        <li><span class="glyphicon glyphicon-th-list common-color-text b-user-menu-list-element"></span><a href="/profile/@Model.DisplayName">Мои посты</a></li>
+
+    </ul>
+</div>
+<div class="b-user-menu__logo">
+    <div class="b-user-menu__avatar">
+        <a href="/profile/edit/"><img src="@Model.PhotoFile" style="width: 80px; height: auto" alt="@Model.DisplayName"></a>
+    </div>
+
+    <!-- *** -->
+</div>

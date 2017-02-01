@@ -1,0 +1,40 @@
+﻿@inherits Nancy.ViewEngines.Razor.NancyRazorViewBase<System.Collections.Generic.List<G2WebApp.Core.Data.Entities.Comment>>
+
+<p class="center-message" style="margin-top: 10px">Всего комментариев на сайте : @Model.Count</p>
+<table class="table" style="max-width: 900px">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Автор</th>
+            <th>Текст</th>
+            <th>Статус</th>
+            <th>Действия</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var comment in @Model)
+        {
+            <tr>
+                <td>@comment.Id</td>
+                <td>
+                    <a href="/profile/@comment.Author">@comment.Author</a>
+                </td>
+                <td>
+                   @comment.Content
+                    <br /><a href="/post/@comment.StoryID">Ссылка</a>
+                </td>
+                <td>
+                    @comment.Flag
+                </td>
+                <td>
+                    <div class="btn-toolbar" role="toolbar">
+                        <div class="btn-group" role="group">
+                            <button type="button" onclick="window.location.href='/admin/do?Type=comment&Action=approve&Id=@comment.Id'" class="btn btn-default btn-success">Одобрить</button>
+                            <button type="button" onclick="window.location.href='/admin/do?Type=comment&Action=delete&Id=@comment.Id'" class="btn btn-default btn-danger">Удалить</button>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+                        }
+    </tbody>
+</table>

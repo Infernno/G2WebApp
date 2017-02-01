@@ -1,0 +1,7 @@
+﻿@inherits Nancy.ViewEngines.Razor.NancyRazorViewBase<string>
+
+<div class="panel panel-default">
+    <div class="panel-body">
+        @Html.Raw(Model.Replace("\n", "<br>"))
+    </div>
+</div>

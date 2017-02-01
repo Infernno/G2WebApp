@@ -1,0 +1,213 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{CFE0EAF5-21EE-4C32-9C81-AACFF3836280}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>G2WebApp</RootNamespace>
+    <AssemblyName>G2WebApp</AssemblyName>
+    <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+  </PropertyGroup>
+  <PropertyGroup />
+  <PropertyGroup>
+    <StartupObject>G2WebApp.Program</StartupObject>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="FluentValidation, Version=5.6.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\FluentValidation.5.6.2.0\lib\Net45\FluentValidation.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Nancy, Version=1.3.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Nancy.1.3.0\lib\net40\Nancy.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Nancy.Hosting.Self, Version=1.3.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Nancy.Hosting.Self.1.3.0\lib\net40\Nancy.Hosting.Self.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Nancy.Validation.DataAnnotations, Version=1.3.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Nancy.Validation.DataAnnotations.1.3.0\lib\net40\Nancy.Validation.DataAnnotations.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Nancy.Validation.FluentValidation, Version=1.3.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Nancy.Validation.FluentValidation.1.3.0\lib\net40\Nancy.Validation.FluentValidation.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Nancy.ViewEngines.Razor, Version=1.3.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Nancy.Viewengines.Razor.1.3.0\lib\net40\Nancy.ViewEngines.Razor.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.3\lib\net45\System.Web.Razor.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App\Config\MainBootstrapper.cs" />
+    <Compile Include="App\Config\TinyIocResolver.cs" />
+    <Compile Include="App\Helpers\HtmlHelper.cs" />
+    <Compile Include="App\Pages\ErrorHandler.cs" />
+    <Compile Include="Modules\AdminModule.cs" />
+    <Compile Include="Modules\AuthModule.cs" />
+    <Compile Include="Modules\CommentModule.cs" />
+    <Compile Include="Modules\HomeModule.cs" />
+    <Compile Include="Modules\StoryModule.cs" />
+    <Compile Include="Modules\ProfileModule.cs" />
+    <Compile Include="Modules\VoteModule.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <None Include="Views\Admin\Main.cshtml" />
+    <None Include="Views\Admin\ShowAllComments.cshtml" />
+    <None Include="Views\Admin\ShowAllStories.cshtml" />
+    <None Include="Views\Admin\ShowAllUsers.cshtml" />
+    <None Include="Views\Errors\404.cshtml" />
+    <None Include="Views\Errors\500.cshtml" />
+    <None Include="Views\Shared\AddComment.cshtml" />
+    <None Include="Views\Shared\AddPost.cshtml" />
+    <None Include="Views\Shared\Comment.cshtml" />
+    <None Include="Views\Shared\CommentOfDay.cshtml" />
+    <None Include="Views\Shared\FullPost.cshtml" />
+    <None Include="Views\Shared\ImagePost.cshtml" />
+    <None Include="Views\Shared\Post.cshtml" />
+    <None Include="Views\Shared\TextPost.cshtml" />
+    <None Include="Views\Shared\ProfilePage.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Content\bootstrap-theme.css.map" />
+    <None Include="Content\bootstrap.css.map" />
+    <None Include="fonts\glyphicons-halflings-regular.eot" />
+    <None Include="fonts\glyphicons-halflings-regular.ttf" />
+    <None Include="fonts\glyphicons-halflings-regular.woff" />
+    <None Include="fonts\glyphicons-halflings-regular.woff2" />
+    <None Include="packages.config" />
+    <None Include="Scripts\jquery-2.1.4.min.map" />
+    <None Include="Views\Errors\401.cshtml" />
+    <None Include="Views\Home\Index.cshtml" />
+    <None Include="Views\Shared\Header.cshtml" />
+    <None Include="Views\Shared\Layout.cshtml" />
+    <None Include="Views\Shared\Login.cshtml" />
+    <None Include="Views\Shared\ProfileTab.cshtml" />
+    <None Include="Views\Shared\Register.cshtml" />
+    <None Include="Views\Shared\SearchResult.cshtml" />
+    <None Include="Views\Shared\Sidebar.cshtml" />
+    <None Include="Views\_ViewStart.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\bootstrap-theme.css" />
+    <Content Include="Content\bootstrap-theme.min.css" />
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\Comments.css" />
+    <Content Include="Content\Profile.css" />
+    <Content Include="Images\logo.png" />
+    <Content Include="Images\Avatars\noAvatar.png" />
+    <Content Include="Content\Styles.css" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Scripts\messages.js" />
+    <Content Include="Scripts\Noty\jquery.noty.js" />
+    <Content Include="Scripts\Noty\layouts\bottom.js" />
+    <Content Include="Scripts\Noty\layouts\bottomCenter.js" />
+    <Content Include="Scripts\Noty\layouts\bottomLeft.js" />
+    <Content Include="Scripts\Noty\layouts\bottomRight.js" />
+    <Content Include="Scripts\Noty\layouts\center.js" />
+    <Content Include="Scripts\Noty\layouts\centerLeft.js" />
+    <Content Include="Scripts\Noty\layouts\centerRight.js" />
+    <Content Include="Scripts\Noty\layouts\inline.js" />
+    <Content Include="Scripts\Noty\layouts\top.js" />
+    <Content Include="Scripts\Noty\layouts\topCenter.js" />
+    <Content Include="Scripts\Noty\layouts\topLeft.js" />
+    <Content Include="Scripts\Noty\layouts\topRight.js" />
+    <Content Include="Scripts\Noty\packaged\jquery.noty.packaged.js" />
+    <Content Include="Scripts\Noty\packaged\jquery.noty.packaged.min.js" />
+    <Content Include="Scripts\Noty\promise.js" />
+    <Content Include="Scripts\Noty\themes\bootstrap.js" />
+    <Content Include="Scripts\Noty\themes\default.js" />
+    <Content Include="Scripts\Noty\themes\relax.js" />
+    <Content Include="Scripts\search.js" />
+    <Content Include="Scripts\toTop.js" />
+    <Content Include="Scripts\validation.js" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Scripts\jquery-2.1.4.intellisense.js" />
+    <Content Include="Scripts\jquery-2.1.4.js" />
+    <Content Include="Scripts\jquery-2.1.4.min.js" />
+    <Content Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\Votes.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\G2WebApp.Auth\G2WebApp.Auth.csproj">
+      <Project>{f66fa621-b172-48e9-92f0-d9d1444325b4}</Project>
+      <Name>G2WebApp.Auth</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\G2WebApp.Core\G2WebApp.Core.csproj">
+      <Project>{36cd5963-ee1e-4575-9cc2-a437b73ada1a}</Project>
+      <Name>G2WebApp.Core</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>
+if $(ConfigurationName) == Debug (
+xcopy /s /y /R "$(SolutionDir)packages\Nancy.Viewengines.Razor.0.17.1\BuildProviders\Nancy.ViewEngines.Razor.BuildProviders.dll" "$(ProjectDir)bin\"
+xcopy /s /y /R "$(SolutionDir)packages\Nancy.Viewengines.Razor.0.17.1\lib\Net40\Nancy.ViewEngines.Razor.dll" "$(ProjectDir)bin\"
+)
+XCOPY "$(SolutionDir)G2WebApp\Content" "$(TargetDir)\Content\" /S /Y
+XCOPY "$(SolutionDir)G2WebApp\fonts" "$(TargetDir)\fonts\" /S /Y
+XCOPY "$(SolutionDir)G2WebApp\Scripts" "$(TargetDir)\Scripts\" /S /Y
+XCOPY "$(SolutionDir)G2WebApp\Views" "$(TargetDir)\Views\" /S /Y
+XCOPY "$(SolutionDir)G2WebApp\Images" "$(TargetDir)\Images\" /S /Y
+if $(ConfigurationName) == Debug (
+xcopy /s /y /R "$(SolutionDir)packages\Nancy.Viewengines.Razor.1.3.0\BuildProviders\Nancy.ViewEngines.Razor.BuildProviders.dll" "$(ProjectDir)bin\"
+xcopy /s /y /R "$(SolutionDir)packages\Nancy.Viewengines.Razor.1.3.0\lib\Net40\Nancy.ViewEngines.Razor.dll" "$(ProjectDir)bin\"
+)</PostBuildEvent>
+  </PropertyGroup>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
